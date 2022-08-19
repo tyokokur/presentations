@@ -2,7 +2,10 @@
 
 * Introduction
 - Polymer brushes are defined by physically fixing one end of a polymer chain
-  onto some substrate. 
+  onto some substrate.
+- In neutrally charged brushes, brushes extend vertically into the solution
+  above some threshold grafting density such that the entropic penalty of
+  chain stretching is less than t
 
   
 * SCFT Build-up
