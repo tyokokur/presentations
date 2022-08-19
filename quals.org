@@ -1,0 +1,51 @@
+*Presentation Notes*
+
+* Introduction
+- Polymer brushes are defined by physically fixing one end of a polymer chain
+  onto some substrate.
+- In neutrally charged brushes, brushes extend vertically into the solution
+  above some threshold grafting density. There, the steric hinderance resulting
+  from surrounding chains exceeds the elastic entropy loss from
+  stretching the chain.
+- In charged polymer, or polyelectrolyte, brushes, the inherent charges on the
+  chains governs brush height instead of the short-range monomer-monomer
+  interactions.
+- In both neutral and charged brushes, the only phases that have been
+  reported are a dilute, coil-like phase and a condensed phase. At certain
+  paramter spaces, these phases can even coexist.
+- Applications for polymer brushes range extremely broadly. A few examples
+  include
+  - biofouling, which is the buildup of proteins or the formation of biofilm on
+    medical devices or the hulls of ships which hinder the performance of
+    the materials they attach onto.
+  - stimuli-sensitive materials, like the protein brush responding to changing
+    ionic strength on the left figure, can unlock technologies like smart
+    valves and smart sensors.
+  - 
+
+  
+* SCFT Build-up
+
+
+
+* Systematic Results
+
+
+
+* NFH Results
+
+
+
+* Reflectivity
+
+
+
+* Future Work
+
+
+
+* Summary/Conclusions
+
+
+
+* Supps
