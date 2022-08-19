@@ -3,29 +3,110 @@
 * Introduction
 - Polymer brushes are defined by physically fixing one end of a polymer chain
   onto some substrate.
+  
 - In neutrally charged brushes, brushes extend vertically into the solution
   above some threshold grafting density. There, the steric hinderance resulting
   from surrounding chains exceeds the elastic entropy loss from
   stretching the chain.
+  
 - In charged polymer, or polyelectrolyte, brushes, the inherent charges on the
   chains governs brush height instead of the short-range monomer-monomer
   interactions.
+  
 - In both neutral and charged brushes, the only phases that have been
   reported are a dilute, coil-like phase and a condensed phase. At certain
   paramter spaces, these phases can even coexist.
+  
 - Applications for polymer brushes range extremely broadly. A few examples
   include
-  - biofouling, which is the buildup of proteins or the formation of biofilm on
-    medical devices or the hulls of ships which hinder the performance of
-    the materials they attach onto.
+  - biofouling, which is the buildup of proteins or a biofilm on
+    medical devices or the hulls of ships. Protein brushes are already being
+    used to prevent such foreign obejcts from approaching the surface.
+    
   - stimuli-sensitive materials, like the protein brush responding to changing
-    ionic strength on the left figure, can unlock technologies like smart
+    ionic environment on the left figure, can unlock technologies like smart
     valves and smart sensors.
-  - 
+    
+  - fundamental mechanisms of biological systems like neurofilaments, which can
+    be modeled as cylindrical protein brushes. These neurofilaments regulate
+    the rigidty, diameter, and structure of the axon, which is the conducting
+    pathway for all signals in the body.
+    
+    - Here, I've shown a neuron that can be found in patients with
+       ALS (amyotrophic laterial sclerosis), AD, and Parkinson's disease,
+       in which neurofilament  bundles become unstable,
+       leaking into the neuron cell body, and eventually leading
+       to neuron death.
 
   
 * SCFT Build-up
+- System
+  - We can build up our model from the species that our system
+    consists of. Naturally, these species interact with each other, and
+    we apply some assumptions to make our model more straightforward.
+    
+  - Each polymer in our brush consists of monomers that respond elastically
+    to their environment. Thus, the energy is a function of the set of
+    possible monomer locations.
+    - For simplicity, we assume that we only need to probe the statistics of
+      just one chain. Physically, this translates to a homogeneous grafting
+      density throughout the brush.
 
+  - Our brush is immersed in some solvent, which introduces some two-body
+    interaction scaled by some parameter chi. This parameter expresses the
+    energy penalty for a monomer and solvent particle existing at the same
+    location.
+
+  - Finally, we consider the long-range interaction between all charged species,
+    which are the polymer and ions. We'll be focusing on the Debye-Huckel
+    regime, so we will not need to consider complex electrostatics such as
+    ion correlations and finite ion volume.
+
+  - Instead of considering the discrete location of every separate molecule, we
+    would like to generate fields that govern the locations of single, test
+    molecules. These fields should be continuous, and reflect the coupled nature
+    of the interactions.
+    - Because each field is dependent on other fields, we call this approach
+      "self-consistent field theory."
+
+  - Now, we can simplify our system from the previous slide into continuous
+    functions describing the polymer volume fraction distribution, solvent
+    distribution, and interaction fields such as the electrostatic potential.
+
+- Interactions
+  - We'll be working off the framework that my group has previously developed
+    for dilute polyelectrolyte solutions.
+
+  - I'd like to specify the mathematical formalization of the interactions from
+    the previous slides.
+
+    - At the limit of an infinitely long chain, which practically is around 100
+      monomers, we can consider a Gaussian form for the elastic entropy.
+
+    - We consider Flory-Huggins interactions between the polymer and solvent.
+      This expression is derived with monomer-monomer interactions as a
+      basis.
+
+    - Because electrostatic interactions are long-ranged, we have to introduce
+      some correlation function, which we'll deal with in the next step.
+
+    - Finally, we introduce an incompressibility constraint. This will lead
+      to an expression for the pressure of the whole system.
+
+  - Partition Function
+    - We will do our calculations in the semicanonical ensemble, which means
+      we fix the number of polymers but leave the number of ions and solvent
+      to be enforced by chemical potentials from the bulk solution.
+
+    - Here, I've just plugged in the interactions from the previous slide,
+      but added the chemical potentials and indistinguishability of species.
+
+    - We perform exact mathematical transforms to convert our discrete,
+      particle operators to continuous distributions and transform the
+      correlation function into a single field operating on a single
+      density profile.
+
+    - We suppose that 
 
 
 * Systematic Results
