@@ -5,7 +5,10 @@
   onto some substrate.
 - In neutrally charged brushes, brushes extend vertically into the solution
   above some threshold grafting density. There, the steric hinderance resulting
-  from surrounding chains exceeds the entropy loss experienced from s.
+  from surrounding chains exceeds the elastic entropy loss from
+  stretching the chain.
+- In charged polymer, or polyelectrolyte, brushes, the inherent charge on the
+  cha
 
   
 * SCFT Build-up
