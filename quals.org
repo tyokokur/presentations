@@ -106,11 +106,28 @@
       correlation function into a single field operating on a single
       density profile.
 
-    - We suppose that 
+    - We suppose that the most probable state is that which minimizes the
+      free energy, so we perform the saddle-point approximation.
 
+    - Finally, to consider polymers that are comprised of chemically
+      distinct segments, we introduce separate density profiles
+       and fields for each block.
+
+  - This leads us to our variational free energy, which we can functionally
+    minimize to arrive at a system of self-consistent field equations.
+    - The polymer and solvent density profiles here translate physically,
+      while the fields enforce the coupled interactions. We also recover
+      the incompressibility constraint.
+
+  - In addition to these 5 equations, we have two PDEs. The PB equation
+    governs the electrostatic interactions, while the MDE governs the
+    elastic interactions.
+    - Because we have multiple blocks within the same chain, the field
+      governing the polymer distribution must change according to where
+      we are along the contour length, s.
 
 * Systematic Results
-
+- 
 
 
 * NFH Results
