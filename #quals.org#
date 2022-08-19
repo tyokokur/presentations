@@ -7,8 +7,10 @@
   above some threshold grafting density. There, the steric hinderance resulting
   from surrounding chains exceeds the elastic entropy loss from
   stretching the chain.
-- In charged polymer, or polyelectrolyte, brushes, the inherent charge on the
-  cha
+- In charged polymer, or polyelectrolyte, brushes, the inherent charges on the
+  chains governs brush height instead of the short-range monomer-monomer
+  interactions.
+- In both neutral and charged brushes, the only conformat
 
   
 * SCFT Build-up
