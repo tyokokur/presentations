@@ -40,7 +40,7 @@
 
   
 * SCFT Build-up
-- System
+- /System/
   - We can build up our model from the species that our system
     consists of. Naturally, these species interact with each other, and
     we apply some assumptions to make our model more straightforward.
@@ -73,7 +73,7 @@
     functions describing the polymer volume fraction distribution, solvent
     distribution, and interaction fields such as the electrostatic potential.
 
-- Interactions
+- /Interactions/
   - We'll be working off the framework that my group has previously developed
     for dilute polyelectrolyte solutions.
 
@@ -93,7 +93,7 @@
     - Finally, we introduce an incompressibility constraint. This will lead
       to an expression for the pressure of the whole system.
 
-  - Partition Function
+  - /Partition Function/
     - We will do our calculations in the semicanonical ensemble, which means
       we fix the number of polymers but leave the number of ions and solvent
       to be enforced by chemical potentials from the bulk solution.
@@ -126,12 +126,107 @@
       governing the polymer distribution must change according to where
       we are along the contour length, s.
 
+      
 * Systematic Results
-- 
+- With our equations, we can accurately produce polymer density profiles. To
+  eventually compare with experimental results, we decide some threshold
+  density to declare a height.
+
+- Here, we are focusing only for the case of a smeared charge fraction of
+  0.40 and varying chi, the solubility parameter. Physically, this could mean
+  comparing the same polymer in different solvents, or with respect to
+  decreasing temperature, as chi generally scales inversely with temperature.
+
+- At this point, each color denotes a different conformation, which will be
+  more clear on the next slide when we see each conformation's density
+  profiles.
+
+- However, we can  determine transitions between these phases by comparing
+  their free energies. For this profile, the conformation goes from blue
+  to red to green to orange to blue. Because there exist discontinuities
+  in the overall free energy, these transitions are all of the first order.
+
+- Here, I've assigned names for each of these conformations in the form of some
+  integer and then a C. The reason why will become apparent when we look at
+  the polymer density profiles.
+
+- The left of this figure is the same as the previous slide. On the right,
+  there is a panel for each of the four conformations. At any solubility,
+  there may exist more than one conformation, but only one will be the
+  minimum free energy conformation. Thus, this video will show all
+  conformations that our code converged to; however, only the minimum free
+  energy conformation will be colored.
+
+- We can now generalize this to 3 other internal charge fractions, 0.3, 0.2,
+  and 0, which is a neutrally charged brush. Instead of showing competing
+  conformations for the same smeared charge on the right side, each panel
+  corresponds to the minimum free energy conformations.
+
+- The higher the internal charge fraction, the richer the conformational
+  space. Each layer of the brush performs a balancing act between internal
+  repulsion and external pressure. As interactions with the solvent become less
+  favorable, which is at high chis, the brush is forced to compress and the
+  layers melt into one another.
+
+- Regardless of the alpha, brushes go from a
+  coil-like conformation and then to a conformation with the maximum number
+  of peaks for this alpha. Then, the number of layers decreases sequentially
+  until we're back to 1C. At high enough chi, the brushes will look the same
+  regardless of the internal charge.
+
+- Now that we can see that the conformational space is far richer than
+  previously thought, we should probe the structure of the conformations at
+  the chain level. Since our density profiles are averaged over the surface,
+  there are two possible structures: the "locked in layer" model and the
+  "pearl neckalace like" model.
+
+- Although similar, we can look to the end-point distribution to differentiate
+  the two models. The "locked in layer" model has distinct regions which
+  are accessible to end points, while the "pn-like" doesn't discriminate.
+
+- We can see that the locked in layer model applies to 2C at alpha = 0.30. We
+  also see that this structure is consistent at other points in the
+  parameter space.
 
 
 * NFH Results
+- We now apply our theory to previously published experimental results. The
+  figure on the right was briefly introduced on the first slide of this
+  presentation. By grafting proteins usually found in neurofilaments, a brush
+  that's sensitive to both pH and ionic strength was synthesized. Here, we
+  will be focusing on the response to ionic strength at a constant pH of 2.4.
 
+- First, we must find a way to simplify the charge distribution of the protein.
+  The discrete charge distribution can look very noisy, and considering every
+  amino acid separately is computationally costly. We take a straight-forward
+  approach and monitor the cumulative sum of the charge distribution.
+
+- Here, I've listed a sample sequence of Histidine (H), Aspartic Acid (D),
+  and Lysine (K). Based on our innate pattern finding, we should aim to split
+  this into 3 groups. These groups can be qualitatively seen on the
+  cumulative sum plot. If we split them based on cumulative sum slope,
+  we can draw three bins over which to coarse grain the chain over.
+
+- For neurofilament heavy, NFH, the sequence is much less straight-forward. By
+  applying the process on the previous slide, we split the chain into 5 blocks.
+  When visualizing the charge distribution directly against the discrete
+  charge distribution, we find a pretty good fit.
+  - This view is especially helpful for collaboration with specialists.
+    For example, we may adjust the boundaries slightly to consider all the KsP
+    repeats on the chain, which will be the region of interest in a
+    phosphorylation study.
+
+- Overall, our theory works quite well to capture the response of NFH to ionic
+  environment. The height profile is comprised of 3 conformational regions.
+  This extra "d" in 2Cd denotes the coexistence with a coil-like, dilute
+  phase. 
+
+- Especially for the application to smart surfaces, we want to understand
+  this dramatic collapse from 2Cd to 2C. When one dilute chain collapses onto
+  the condensed layer, the effective grafting density of the surrounding
+  chains decreases. This further increases the favorability of collapsing, which
+  then decreases the effective grafting density. Because the coil-like layer
+  is extremely tall, the change in height from 2Cd to 2C is drastic.
 
 
 * Reflectivity
