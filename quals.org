@@ -9,18 +9,18 @@
   from surrounding chains exceeds the elastic entropy loss from
   stretching the chain.
   
-- In charged polymer, or polyelectrolyte, brushes, the inherent charges on the
-  chains governs brush height instead of the short-range monomer-monomer
-  interactions.
+- In polyelectrolyte brushes, the electrostatic repulsion
+  from charged monomers govern brush height instead of the short-range
+  monomer-monomer interactions.
   
 - In both neutral and charged brushes, the only phases that have been
   reported are a dilute, coil-like phase and a condensed phase. At certain
-  paramter spaces, these phases can even coexist.
+  parameter spaces, these phases can even coexist.
   
 - Applications for polymer brushes range extremely broadly. A few examples
   include
   - biofouling, which is the buildup of proteins or a biofilm on
-    medical devices or the hulls of ships. Protein brushes are already being
+    medical devices or the hulls of ships. Polymer brushes are already being
     used to prevent such foreign obejcts from approaching the surface.
     
   - stimuli-sensitive materials, like the protein brush responding to changing
@@ -34,16 +34,30 @@
     
     - Here, I've shown a neuron that can be found in patients with
        ALS (amyotrophic laterial sclerosis), AD, and Parkinson's disease,
-       in which neurofilament  bundles become unstable,
+       in which neurofilament aggregates become unstable,
        leaking into the neuron cell body, and eventually leading
        to neuron death.
 
+  - To understand these phenomena and lead to the effective design of solutions
+    to these types of problems, we require a framework that considers the
+    complex interplay between multiple interacting species. Our group has
+    previously published such a self-consistent field theory for polyelectrolyte
+    dispersions, and we expect that adapting it to polyelectrolyte brushes
+    can contribute to both the fundamental understanding of accessible
+    conformations as well as providing insight to experimental results that
+    are difficult to generate from measurements alone. 
+
   
 * SCFT Build-up
+/Outline/
+- The build-up of our theory can be split into two parts: deciding the system
+  we are considering and its comprising interactions; and the mathematical
+  simplification from our partition function to a set of final, useful
+  equations that allow for the exploration of our parameter space.
+
 - /System/
-  - We can build up our model from the species that our system
-    consists of. Naturally, these species interact with each other, and
-    we apply some assumptions to make our model more straightforward.
+  - To make our model more straightforward, we choose to make assumptions
+    for some of these interactions.
     
   - Each polymer in our brush consists of monomers that respond elastically
     to their environment. Thus, the energy is a function of the set of
@@ -54,12 +68,12 @@
 
   - Our brush is immersed in some solvent, which introduces some two-body
     interaction scaled by some parameter chi. This parameter expresses the
-    energy penalty for a monomer and solvent particle existing at the same
+    energy penalty for a monomer and solvent particle to exist at the same
     location.
 
   - Finally, we consider the long-range interaction between all charged species,
     which are the polymer and ions. We'll be focusing on the Debye-Huckel
-    regime, so we will not need to consider complex electrostatics such as
+    regime, so we will not need to consider complex electrostatics involving
     ion correlations and finite ion volume.
 
   - Instead of considering the discrete location of every separate molecule, we
@@ -111,7 +125,7 @@
 
     - Finally, to consider polymers that are comprised of chemically
       distinct segments, we introduce separate density profiles
-       and fields for each block.
+      and fields for each block.
 
   - This leads us to our variational free energy, which we can functionally
     minimize to arrive at a system of self-consistent field equations.
@@ -120,14 +134,28 @@
       the incompressibility constraint.
 
   - In addition to these 5 equations, we have two PDEs. The PB equation
-    governs the electrostatic interactions, while the MDE governs the
-    elastic interactions.
-    - Because we have multiple blocks within the same chain, the field
-      governing the polymer distribution must change according to where
-      we are along the contour length, s.
+    governs the electrostatic interactions, and is thus a function of
+    the ion distributions, rho plus and minus, and the polymer distribution
+    of each block and its charge. Epsilon is the dielectric constant, or
+    permittivity.
+
+    The MDE governs the elastic interactions, where q is the probability that
+    some polymer segment parameterized by the contour length, s, can be found
+    at some location z. b is the Kuhn's monomer length, which describes
+    the local stiffness of the polymer chain.
+    - Because we have several chemically distinct blocks within the same chain,
+      the field governing the polymer distribution must change according
+      to where we are along the contour length, s.
 
       
 * Systematic Results
+/Outline/
+- I will now discuss the results of our systematic study, in which we will probe
+  the phase transitions between previously unreported brush conformations as
+  well as how we can ascertain the chain-level architecture of these new
+  conformations from our surface-averaged polymer density profiles.
+
+/a040 buildup/
 - With our equations, we can accurately produce polymer density profiles. To
   eventually compare with experimental results, we decide some threshold
   density to declare a height.
@@ -146,10 +174,12 @@
   to red to green to orange to blue. Because there exist discontinuities
   in the overall free energy, these transitions are all of the first order.
 
-- Here, I've assigned names for each of these conformations in the form of some
-  integer and then a C. The reason why will become apparent when we look at
-  the polymer density profiles.
+- Here, I've left only minimum free energy conformations and dotted the
+  metastable conformations. The names for each of these conformations
+  take the form of some
+  integer and then a C. The reason why will become apparent on the next slide.
 
+/alpha 040/
 - The left of this figure is the same as the previous slide. On the right,
   there is a panel for each of the four conformations. At any solubility,
   there may exist more than one conformation, but only one will be the
@@ -157,16 +187,23 @@
   conformations that our code converged to; however, only the minimum free
   energy conformation will be colored.
 
+- We can see that generally, we go from a wide 1C conformation into a 4C
+  conformation, then 3, 2, and finally back to 1. As chi increases,
+  the penalty for solvent-monomer interactions becomes higher, and the
+  overall brush height decreases.
+
+/Different internal/
 - We can now generalize this to 3 other internal charge fractions, 0.3, 0.2,
   and 0, which is a neutrally charged brush. Instead of showing competing
   conformations for the same smeared charge on the right side, each panel
-  corresponds to the minimum free energy conformations.
+  corresponds to the minimum free energy conformations for each of the alphas.
 
 - The higher the internal charge fraction, the richer the conformational
   space. Each layer of the brush performs a balancing act between internal
   repulsion and external pressure. As interactions with the solvent become less
   favorable, which is at high chis, the brush is forced to compress and the
-  layers melt into one another.
+  layers melt into one another. For brushes with higher internal repulsion,
+  the melting transitions happen later.
 
 - Regardless of the alpha, brushes go from a
   coil-like conformation and then to a conformation with the maximum number
@@ -174,6 +211,7 @@
   until we're back to 1C. At high enough chi, the brushes will look the same
   regardless of the internal charge.
 
+/Internal Structure/
 - Now that we can see that the conformational space is far richer than
   previously thought, we should probe the structure of the conformations at
   the chain level. Since our density profiles are averaged over the surface,
@@ -182,43 +220,56 @@
 
 - Although similar, we can look to the end-point distribution to differentiate
   the two models. The "locked in layer" model has distinct regions which
-  are accessible to end points, while the "pn-like" doesn't discriminate.
+  in which end points can be found, while the "pn-like" doesn't discriminate.
 
 - We can see that the locked in layer model applies to 2C at alpha = 0.30. We
   also see that this structure is consistent at other points in the
-  parameter space.
+  parameter space. The "d" here in 4Cd denotes this fifth, dilute layer,
+  which we have not discussed in detail yet, but similarly follows the
+  "locked in layer" model.
 
 
 * NFH Results
+/Outline/
 - We now apply our theory to previously published experimental results. The
   figure on the right was briefly introduced on the first slide of this
   presentation. By grafting proteins usually found in neurofilaments, a brush
   that's sensitive to both pH and ionic strength was synthesized. Here, we
   will be focusing on the response to ionic strength at a constant pH of 2.4.
+  On the left is a preview of how we will approximate the noisy charge
+  distribution of proteins into a series of coarse-grained blocks.
 
-- First, we must find a way to simplify the charge distribution of the protein.
-  The discrete charge distribution can look very noisy, and considering every
+/Coarse-graining/
+- The discrete charge distribution can look very noisy, and considering every
   amino acid separately is computationally costly. We take a straight-forward
   approach and monitor the cumulative sum of the charge distribution.
 
 - Here, I've listed a sample sequence of Histidine (H), Aspartic Acid (D),
-  and Lysine (K). Based on our innate pattern finding, we should aim to split
+  and Lysine (K). Visually, we would intuitively aim to split
   this into 3 groups. These groups can be qualitatively seen on the
   cumulative sum plot. If we split them based on cumulative sum slope,
   we can draw three bins over which to coarse grain the chain over.
 
-- For neurofilament heavy, NFH, the sequence is much less straight-forward. By
-  applying the process on the previous slide, we split the chain into 5 blocks.
+/Application to NFH/
+- Neurofilament heavy, NFH, is a side chain that is found in neurofilament
+  aggregates. As its longest component, NFH is thought to control the
+  inter-axial distance within the neurofilament.
+  
+- NFH's sequence is much less straight-forward compared to the example
+  from the previous slide. Our procedure splits the chain into 5 blocks.
   When visualizing the charge distribution directly against the discrete
   charge distribution, we find a pretty good fit.
+  
   - This view is especially helpful for collaboration with specialists.
     For example, we may adjust the boundaries slightly to consider all the KsP
     repeats on the chain, which will be the region of interest in a
     phosphorylation study.
 
-- Overall, our theory works quite well to capture the response of NFH to ionic
-  environment. The height profile is comprised of 3 conformational regions.
-  This extra "d" in 2Cd denotes the coexistence with a coil-like, dilute
+/Cooperative collapse/
+- Using our generated charge distribution, our model can predict the response
+  of NFH to its changing ionic environment very well.
+  The height profile is comprised of 3 conformational regions.
+  Again, this extra "d" in 2Cd denotes the coexistence with a coil-like, dilute
   phase. 
 
 - Especially for the application to smart surfaces, we want to understand
@@ -230,46 +281,56 @@
 
 
 * Reflectivity
+/Outline/
 - Although we're happy with our generated height profile matching the
   experimentally generated one, we would like stronger verification of our
   multi-peak brush profiles, especially since this is the first time
   anyone has reported on such a thing.
 
+/Method/
 - Reflectivity is a characterization technique that gives information on the
   changes in refractive index with respect to the perpendicular direction, and
-  is thus commonly used for thin films.
+  is thus commonly used for thin films. However, decoding spectra often
+  takes experience and is biased by what conformations you are expecting
+  to find.
 
-- To briefly go over the math, we first look only at the specular part of
+- To briefly go over the technique, we first look only at the specular part of
   the wave scattering vector, which means that the incident angle is the same
-  as the exiting angle. The measured reflectivity, R, is a function of the
+  as the exiting angle.
+
+- The measured reflectivity, R, is a function of the
   specular scattering vector, as given by a Fourier transform over the changes
   in electron density with respect to z. This is the essence of the so-called
   "master equation"
 
+/Characteristic Spectra/
 - While reflectivity supposedly gives the information on the density profile,
   practically, we have to generate some density profile, apply the master
   equation, and then check against the spectra to see if it's sufficiently
   close. However, there's no guarantee that the generated density profile is
-  realistic.
+  physically possible.
 
 - We can take the profiles that we've generated from SCFT and create
   characteristic spectra for experimentalists to compare against.
   *INSERT INSIGHT HERE*
 
 * Future Work
-- My future work can be separated into two sections: a further exploration of
+/Outline/
+- My next steps can be separated into
+  two sections: a further exploration of
   the new conformations and an application of our theory for collaboration
   with experimentalists.
 
+/Future Work/
 - Because a common application of polymer brushes is as functionalized surfaces
   for lubrication or replusion of foreign species, we need to probe how the
   xC conformations respond to the introduction of both inpenetrable and soft
   materials. This could also lead to a collaboration with high-sensitivity
   AFM for validation of the moduli that we predict.
 
-- Our group has recently been very successful in solving ion correlation
+- Next, our group has recently been very successful in solving ion correlation
   energies numerically. For polyelectrolyte brushes, there has already been
-  multi-layer structures found with the addition of aluminum ions
+  multi-layer structures found with the addition of 3+ aluminum ions
   experimentally. We can adapt the theory presented today to incorporate such
   interactions.
 
@@ -278,8 +339,12 @@
   general confidence that our results here are actually correct.
 
 - Next, we'd like to supplement experimental data on the effect of neurofilament
-  protein composition generated by Erika Ding from the Kumar lab, much like
-  I showed today with the protein brush.
+  protein composition , much like
+  I showed today with the protein brush. The composition of neurofilaments is
+  not constant, instead changing based on where in the body the axon must
+  travel through and how close to the brain the axon is. Generating a phase
+  diagram with respect to composition should help explain why certain physical
+  conditions yield certain neurofilament compositions.
 
 - Finally, we'd like to study the aggregation of single-chain polyelectrolytes
   that are used in protein exchange membranes. When synthesizing such
@@ -288,11 +353,11 @@
   understanding the nafion structure in disperion and the hydrogen profiles
   that surround it are extremely important for the final effectiveness of the
   hydrogen fuel cell.
-
-- Using our SCFT theory, we can
-  generate force fields corresponding to single chains being brought together.
-  We can then feed these into molecular dynamics simulations to predict the
-  aggregation in solution. 
+  
+  - Using our SCFT theory, we can
+    generate force fields corresponding to single chains being brought together.
+    We can then feed these into molecular dynamics simulations to predict the
+    aggregation in solution. 
 
 
 * Summary/Conclusions
